@@ -36,3 +36,15 @@ CREATE TABLE treatments (
     PRIMARY KEY(id)
 );
 
+CREATE TABLE invoice_items (
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+    unit_price DECIMAL NOT NULL,
+    quantity INT NOT NULL,
+    total_price DECIMAL NOT NULL,
+    invoice_id INT,
+    treatment_id INT,
+    CONSTRAINT fk_invoice FOREIGN KEY(invoice_id) REFERENCES invoices (id),
+    CONSTRAINT fk_treatment FOREIGN KEY(treatment_id) REFERENCES treatments (id),
+    PRIMARY KEY (id)
+);
+
