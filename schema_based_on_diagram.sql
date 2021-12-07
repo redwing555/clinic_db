@@ -28,3 +28,11 @@ CREATE TABLE invoices (
     CONSTRAINT fk_medical_history FOREIGN KEY(medical_history_id) REFERENCES medical_histories (id),
     PRIMARY KEY (id)
 );
+
+CREATE TABLE treatments (
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+    type VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    PRIMARY KEY(id)
+);
+
